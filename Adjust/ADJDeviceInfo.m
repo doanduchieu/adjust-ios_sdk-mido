@@ -14,7 +14,7 @@
 #import "NSData+ADJAdditions.h"
 #import "ADJReachability.h"
 
-#if !TARGET_OS_TV
+#if !TARGET_OS_TV && !TARGET_OS_MACCATALYST
 #import <CoreTelephony/CTCarrier.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #endif
@@ -36,7 +36,7 @@
 
     self.trackingEnabled  = UIDevice.currentDevice.adjTrackingEnabled;
     self.idForAdvertisers = UIDevice.currentDevice.adjIdForAdvertisers;
-    self.fbAttributionId  = UIDevice.currentDevice.adjFbAttributionId;
+    self.fbAnonymousId    = UIDevice.currentDevice.adjFbAnonymousId;
     self.vendorId         = UIDevice.currentDevice.adjVendorId;
     self.bundeIdentifier  = [infoDictionary objectForKey:(NSString *)kCFBundleIdentifierKey];
     self.bundleVersion    = [infoDictionary objectForKey:(NSString *)kCFBundleVersionKey];

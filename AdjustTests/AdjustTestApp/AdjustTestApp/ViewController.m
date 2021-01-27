@@ -30,8 +30,8 @@
                                            andCommandDelegate:self.adjustCommandExecutor];
     [self.adjustCommandExecutor setTestLibrary:self.testLibrary];
 
-    // [self.testLibrary addTestDirectory:@"current/sdkInfo"];
-    // [self.testLibrary addTest:@"current/appSecret/Test_AppSecret_no_secret"];
+     //[self.testLibrary addTestDirectory:@"event-callbacks"];
+    //[self.testLibrary addTest:@"Test_AdRevenue_ad_revenue"];
 
     // [self.testLibrary doNotExitAfterEnd];
     [self startTestSession];

@@ -2,11 +2,13 @@
 //  ViewController.swift
 //  AdjustExample-Swift
 //
-//  Created by Uglješa Erceg on 06/04/16.
-//  Copyright © 2016 adjust GmbH. All rights reserved.
+//  Created by Uglješa Erceg (@uerceg) on 6th April 2016.
+//  Copyright © 2016-2019 Adjust GmbH. All rights reserved.
 //
 
 import UIKit
+import AppTrackingTransparency
+import AdSupport
 
 class ViewControllerSwift: UIViewController {
     @IBOutlet weak var btnTrackEventSimple: UIButton?
@@ -18,6 +20,14 @@ class ViewControllerSwift: UIViewController {
     @IBOutlet weak var btnEnableSDK: UIButton?
     @IBOutlet weak var btnDisableSDK: UIButton?
     @IBOutlet weak var btnIsSDKEnabled: UIButton?
+    
+    lazy var loadProductController: ProductLoadable? = {
+        if #available(iOS 14.0, *) {
+            return LoadProductController()
+        }
+        
+        return nil
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,22 +36,47 @@ class ViewControllerSwift: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @IBAction func btnAskPermission(_sender: UIButton) {
+        if #available(iOS 14, *) {
+            print("status notDetermined == \(ATTrackingManager.trackingAuthorizationStatus == .notDetermined)")
+            print("status authorized == \(ATTrackingManager.trackingAuthorizationStatus == .authorized)")
+            print("IDFA == \(ASIdentifierManager.shared().advertisingIdentifier)")
+            ATTrackingManager.requestTrackingAuthorization { (status) in
+                print("IDFA == \(ASIdentifierManager.shared().advertisingIdentifier)")
+                print("authorized == \(status == .authorized)")
+                print("denied == \(status == .denied)")
+                print("restricted == \(status == .restricted)")
+            }
+        }
+    }
+    
+    @IBAction func btnLoadProduct(_sender: UIButton) {
+        loadProductController?.loadProduct(from: self)
+    }
 
     @IBAction func btnTrackEventSimpleTapped(_sender: UIButton) {
         let event = ADJEvent(eventToken: "g3mfiw");
+
+        // Attach callback ID to event.
+        event?.setCallbackId("RandomCallbackId")
 
         Adjust.trackEvent(event);
     }
 
     @IBAction func btnTrackEventRevenueTapped(_sender: UIButton) {
         let event = ADJEvent(eventToken: "a4fd35")
-        event?.setRevenue(0.99, currency: "EUR");
+
+        // Add revenue 1 cent of an EURO.
+        event?.setRevenue(0.01, currency: "EUR");
 
         Adjust.trackEvent(event);
     }
 
     @IBAction func btnTrackEventCallbackTapped(_sender: UIButton) {
         let event = ADJEvent(eventToken: "34vgg9");
+
+        // Add callback parameters to this event.
         event?.addCallbackParameter("foo", value: "bar");
         event?.addCallbackParameter("key", value: "value");
 
@@ -50,6 +85,8 @@ class ViewControllerSwift: UIViewController {
 
     @IBAction func btnTrackEventPartnerTapped(_sender: UIButton) {
         let event = ADJEvent(eventToken: "w788qs");
+
+        // Add partner parameteres to this event.
         event?.addPartnerParameter("foo", value: "bar");
         event?.addPartnerParameter("key", value: "value");
 

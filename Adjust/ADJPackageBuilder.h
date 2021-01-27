@@ -13,6 +13,8 @@
 #import "ADJActivityPackage.h"
 #import "ADJSessionParameters.h"
 #import <Foundation/Foundation.h>
+#import "ADJActivityHandler.h"
+#import "ADJThirdPartySharing.h"
 
 @interface ADJPackageBuilder : NSObject
 
@@ -32,6 +34,7 @@
            activityState:(ADJActivityState *)activityState
                   config:(ADJConfig *)adjustConfig
        sessionParameters:(ADJSessionParameters *)sessionParameters
+   trackingStatusManager:(ADJTrackingStatusManager *)trackingStatusManager
                createdAt:(double)createdAt;
 
 - (ADJActivityPackage *)buildSessionPackage:(BOOL)isInDelay;
@@ -39,7 +42,11 @@
 - (ADJActivityPackage *)buildEventPackage:(ADJEvent *)event
                                 isInDelay:(BOOL)isInDelay;
 
-- (ADJActivityPackage *)buildInfoPackage:(NSString *)infoSource;
+- (ADJActivityPackage *)buildInfoPackage:(NSString *)infoSource
+                                   token:(NSString *)token
+                         errorCodeNumber:(NSNumber *)errorCodeNumber;
+
+- (ADJActivityPackage *)buildAdRevenuePackage:(NSString *)source payload:(NSData *)payload;
 
 - (ADJActivityPackage *)buildClickPackage:(NSString *)clickSource;
 
@@ -47,12 +54,25 @@
 
 - (ADJActivityPackage *)buildGdprPackage;
 
+- (ADJActivityPackage *)buildDisableThirdPartySharingPackage;
+
+- (ADJActivityPackage *)buildThirdPartySharingPackage:(nonnull ADJThirdPartySharing *)thirdPartySharing;
+
+- (ADJActivityPackage *)buildMeasurementConsentPackage:(BOOL)enabled;
+
+- (ADJActivityPackage *)buildSubscriptionPackage:(ADJSubscription *)subscription
+                                       isInDelay:(BOOL)isInDelay;
+
 + (void)parameters:(NSMutableDictionary *)parameters
      setDictionary:(NSDictionary *)dictionary
             forKey:(NSString *)key;
 
 + (void)parameters:(NSMutableDictionary *)parameters
          setString:(NSString *)value
+            forKey:(NSString *)key;
+
++ (void)parameters:(NSMutableDictionary *)parameters
+            setInt:(int)value
             forKey:(NSString *)key;
 
 @end
