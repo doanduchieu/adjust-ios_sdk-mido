@@ -18,9 +18,11 @@ FOUNDATION_EXPORT const unsigned char AdjustSdkImVersionString[];
 
 #import <AdjustSdkIm/Adjust.h>
 #import <AdjustSdkIm/ADJEvent.h>
+#import <AdjustSdkIm/ADJThirdPartySharing.h>
 #import <AdjustSdkIm/ADJConfig.h>
 #import <AdjustSdkIm/ADJLogger.h>
 #import <AdjustSdkIm/ADJAttribution.h>
+#import <AdjustSdkIm/ADJSubscription.h>
 #import <AdjustSdkIm/ADJEventSuccess.h>
 #import <AdjustSdkIm/ADJEventFailure.h>
 #import <AdjustSdkIm/ADJSessionSuccess.h>

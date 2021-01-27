@@ -25,6 +25,7 @@
     }
 
     self.testLibrary = [ATLTestLibrary testLibraryWithBaseUrl:baseUrl
+                                                andControlUrl:controlUrl
                                            andCommandDelegate:self];
 
     [adjustBridgeRegister registerHandler:@"adjustTLB_startTestSession" handler:^(id data, WVJBResponseCallback responseCallback) {
@@ -48,8 +49,8 @@
             return;
         }
 
-        NSString *basePath = (NSString *)data;
-        [self.testLibrary sendInfoToServer:basePath];
+        NSString *extraPath = (NSString *)data;
+        [self.testLibrary sendInfoToServer:extraPath];
     }];
 
     self.adjustBridgeRegister = adjustBridgeRegister;

@@ -25,6 +25,16 @@
         return ADJActivityKindInfo;
     } else if ([@"gdpr" isEqualToString:activityKindString]) {
         return ADJActivityKindGdpr;
+    } else if ([@"ad_revenue" isEqualToString:activityKindString]) {
+        return ADJActivityKindAdRevenue;
+    } else if ([@"disable_third_party_sharing" isEqualToString:activityKindString]) {
+        return ADJActivityKindDisableThirdPartySharing;
+    } else if ([@"subscription" isEqualToString:activityKindString]) {
+        return ADJActivityKindSubscription;
+    } else if ([@"third_party_sharing" isEqualToString:activityKindString]) {
+        return ADJActivityKindThirdPartySharing;
+    } else if ([@"measurement_consent" isEqualToString:activityKindString]) {
+        return ADJActivityKindMeasurementConsent;
     } else {
         return ADJActivityKindUnknown;
     }
@@ -44,6 +54,16 @@
             return @"info";
         case ADJActivityKindGdpr:
             return @"gdpr";
+        case ADJActivityKindAdRevenue:
+            return @"ad_revenue";
+        case ADJActivityKindDisableThirdPartySharing:
+            return @"disable_third_party_sharing";
+        case ADJActivityKindSubscription:
+            return @"subscription";
+        case ADJActivityKindThirdPartySharing:
+            return @"third_party_sharing";
+        case ADJActivityKindMeasurementConsent:
+            return @"measurement_consent";
         default:
             return @"unknown";
     }

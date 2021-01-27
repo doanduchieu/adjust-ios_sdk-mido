@@ -23,6 +23,20 @@
 
 /* Begin PBXBuildFile section */
 		2067002A1F18BDC700B4FDE1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9601C19C1A31DD7F00A9AE21 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6F84512425B1B1380004C7C0 /* ADJThirdPartySharing.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F84511025B1B1380004C7C0 /* ADJThirdPartySharing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F84512525B1B1380004C7C0 /* ADJThirdPartySharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F84512325B1B1380004C7C0 /* ADJThirdPartySharing.m */; };
+		6FBE0C6E2577CDAC00EC2CE0 /* ADJThirdPartySharing.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBE0C6C2577CDAC00EC2CE0 /* ADJThirdPartySharing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FBE0C6F2577CDAC00EC2CE0 /* ADJThirdPartySharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBE0C6D2577CDAC00EC2CE0 /* ADJThirdPartySharing.m */; };
+		6FBEE92624E422EB00FEF3F1 /* ADJUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEE92424E422EB00FEF3F1 /* ADJUrlStrategy.m */; };
+		6FBEE92724E422EB00FEF3F1 /* ADJUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEE92424E422EB00FEF3F1 /* ADJUrlStrategy.m */; };
+		6FBEE92824E422EB00FEF3F1 /* ADJUrlStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBEE92524E422EB00FEF3F1 /* ADJUrlStrategy.h */; };
+		6FBEE92924E422EB00FEF3F1 /* ADJUrlStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBEE92524E422EB00FEF3F1 /* ADJUrlStrategy.h */; };
+		6FBEE92C24E4230800FEF3F1 /* ADJUrlStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBEE92A24E4230700FEF3F1 /* ADJUrlStrategy.h */; };
+		6FBEE92D24E4230800FEF3F1 /* ADJUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEE92B24E4230700FEF3F1 /* ADJUrlStrategy.m */; };
+		6FBEE93024E4231400FEF3F1 /* ADJUrlStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBEE92E24E4231300FEF3F1 /* ADJUrlStrategy.h */; };
+		6FBEE93124E4231400FEF3F1 /* ADJUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEE92F24E4231300FEF3F1 /* ADJUrlStrategy.m */; };
+		6FBEE93424E4232800FEF3F1 /* ADJUrlStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBEE93224E4232800FEF3F1 /* ADJUrlStrategy.h */; };
+		6FBEE93524E4232800FEF3F1 /* ADJUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEE93324E4232800FEF3F1 /* ADJUrlStrategy.m */; };
 		6FCC85001F278CF300D6A0ED /* ADJReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCC84F71F278CF300D6A0ED /* ADJReachability.m */; };
 		6FCC85011F278CF300D6A0ED /* ADJReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FCC84F81F278CF300D6A0ED /* ADJReachability.h */; };
 		6FCC85041F27945E00D6A0ED /* ADJReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FCC85021F27944600D6A0ED /* ADJReachability.h */; };
@@ -40,7 +54,6 @@
 		9615159F1CD2CB360022D336 /* libAdjust.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9679920D18BBAE2800394606 /* libAdjust.a */; };
 		961515A01CD2CB450022D336 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE7C8FC1AE688DA001556E5 /* UIKit.framework */; };
 		961515A21CD2CB4F0022D336 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961515A11CD2CB4F0022D336 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		961515A31CD2CB9D0022D336 /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9648C5E71CD1765E00A3B049 /* WebViewJavascriptBridge.m */; };
 		961515A41CD2CBA20022D336 /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9648C5E91CD1765E00A3B049 /* WebViewJavascriptBridge_JS.m */; };
 		961515A51CD2CBA80022D336 /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9648C5EB1CD1765E00A3B049 /* WebViewJavascriptBridgeBase.m */; };
 		961515A61CD2CBAC0022D336 /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9648C5ED1CD1765E00A3B049 /* WKWebViewJavascriptBridge.m */; };
@@ -211,15 +224,29 @@
 		9D0E2EAF210B575600133B4F /* AdjustBridgeRegister.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E5D210B575600133B4F /* AdjustBridgeRegister.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D0E2EB0210B575600133B4F /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E5F210B575600133B4F /* WebViewJavascriptBridgeBase.m */; };
 		9D0E2EB2210B575600133B4F /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E61210B575600133B4F /* WKWebViewJavascriptBridge.m */; };
-		9D0E2EB3210B575600133B4F /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E62210B575600133B4F /* WebViewJavascriptBridge.m */; };
 		9D0E2EB4210B575600133B4F /* WebViewJavascriptBridge_JS.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E63210B575600133B4F /* WebViewJavascriptBridge_JS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D0E2EB5210B575600133B4F /* WebViewJavascriptBridgeBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E64210B575600133B4F /* WebViewJavascriptBridgeBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D0E2EB7210B575600133B4F /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E66210B575600133B4F /* WebViewJavascriptBridge_JS.m */; };
-		9D0E2EB8210B575600133B4F /* WebViewJavascriptBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E67210B575600133B4F /* WebViewJavascriptBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D0E2EB9210B575600133B4F /* WKWebViewJavascriptBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E68210B575600133B4F /* WKWebViewJavascriptBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D0E2EBA210B575600133B4F /* AdjustBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E69210B575600133B4F /* AdjustBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D0E2EBB210B575600133B4F /* AdjustBridgeRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E6A210B575600133B4F /* AdjustBridgeRegister.m */; };
+		9D2F23E22447CE5C00B7CA90 /* ADJSubscription.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2F23E02447CE5C00B7CA90 /* ADJSubscription.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D2F23E32447CE5C00B7CA90 /* ADJSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F23E12447CE5C00B7CA90 /* ADJSubscription.m */; };
+		9D2F23F82447DCE800B7CA90 /* ADJSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F23F62447DCE800B7CA90 /* ADJSubscription.m */; };
+		9D2F23F92447DCE800B7CA90 /* ADJSubscription.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2F23F72447DCE800B7CA90 /* ADJSubscription.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D2F23FC2447DD2500B7CA90 /* ADJSubscription.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2F23FA2447DD2500B7CA90 /* ADJSubscription.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D2F23FD2447DD2500B7CA90 /* ADJSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F23FB2447DD2500B7CA90 /* ADJSubscription.m */; };
+		9D2F24002447DD3700B7CA90 /* ADJSubscription.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2F23FE2447DD3600B7CA90 /* ADJSubscription.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D2F24012447DD3700B7CA90 /* ADJSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F23FF2447DD3700B7CA90 /* ADJSubscription.m */; };
+		9D2F24042447DD6000B7CA90 /* ADJSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F24022447DD6000B7CA90 /* ADJSubscription.m */; };
+		9D2F24052447DD6000B7CA90 /* ADJSubscription.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2F24032447DD6000B7CA90 /* ADJSubscription.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D363AC31BDA50FA00B47FE9 /* ADJLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 96E5E37318BBB48A008E7B30 /* ADJLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D651BF525B25A64006D69D6 /* ADJThirdPartySharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D651BE125B25A64006D69D6 /* ADJThirdPartySharing.m */; };
+		9D651BF625B25A64006D69D6 /* ADJThirdPartySharing.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D651BF425B25A64006D69D6 /* ADJThirdPartySharing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D651C8825B26DF5006D69D6 /* ADJThirdPartySharing.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D651C8625B26DF4006D69D6 /* ADJThirdPartySharing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D651C8925B26DF5006D69D6 /* ADJThirdPartySharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D651C8725B26DF5006D69D6 /* ADJThirdPartySharing.m */; };
+		9D651C9525B26E1B006D69D6 /* ADJThirdPartySharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D651C9325B26E1B006D69D6 /* ADJThirdPartySharing.m */; };
+		9D651C9625B26E1B006D69D6 /* ADJThirdPartySharing.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D651C9425B26E1B006D69D6 /* ADJThirdPartySharing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D7431EA1EB9F9B700969F14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7431E91EB9F9B700969F14 /* main.m */; };
 		9D7431ED1EB9F9B700969F14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7431EC1EB9F9B700969F14 /* AppDelegate.m */; };
 		9D7431F01EB9F9B700969F14 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7431EF1EB9F9B700969F14 /* ViewController.m */; };
@@ -495,13 +522,6 @@
 			remoteGlobalIDString = 9D01676F20FF812B0029CFFF;
 			remoteInfo = "AdjustExample-iMessage MessagesExtension";
 		};
-		9D449DB11E6ED22900E7E80B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D449DAD1E6ED22900E7E80B /* AdjustExample-iOS.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9639093C1BCBFCF300A2E8A4;
-			remoteInfo = "AdjustExample-iOS";
-		};
 		9D449DB91E6ED23400E7E80B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9D449DB31E6ED23400E7E80B /* AdjustExample-iWatch.xcodeproj */;
@@ -558,6 +578,13 @@
 			remoteGlobalIDString = 9D9D152E212EB3920081445E;
 			remoteInfo = "AdjustExample-FbPixel";
 		};
+		9DBE560B23054FCC0065E19C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DBE560723054FCC0065E19C /* AdjustExample-ObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9639093C1BCBFCF300A2E8A4;
+			remoteInfo = "AdjustExample-ObjC";
+		};
 		9DE7C8FF1AE68EF1001556E5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9679920518BBAE2800394606 /* Project object */;
@@ -594,6 +621,20 @@
 		6F0842182007766700568A31 /* AdjustTestLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AdjustTestLibrary.xcodeproj; path = AdjustTestLibrary/AdjustTestLibrary.xcodeproj; sourceTree = "<group>"; };
 		6F084240200776A000568A31 /* AdjustTestApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AdjustTestApp.xcodeproj; path = AdjustTestApp/AdjustTestApp.xcodeproj; sourceTree = "<group>"; };
 		6F7AF63F211878BC00F730B2 /* AdjustWebBridgeTestApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AdjustWebBridgeTestApp.xcodeproj; path = AdjustWebBridgeTestApp/AdjustWebBridgeTestApp.xcodeproj; sourceTree = "<group>"; };
+		6F84511025B1B1380004C7C0 /* ADJThirdPartySharing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJThirdPartySharing.h; sourceTree = "<group>"; };
+		6F84512325B1B1380004C7C0 /* ADJThirdPartySharing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJThirdPartySharing.m; sourceTree = "<group>"; };
+		6FBE0C6C2577CDAC00EC2CE0 /* ADJThirdPartySharing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADJThirdPartySharing.h; sourceTree = "<group>"; };
+		6FBE0C6D2577CDAC00EC2CE0 /* ADJThirdPartySharing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADJThirdPartySharing.m; sourceTree = "<group>"; };
+		6FBEE8F124E2C26F00FEF3F1 /* ADJUrlStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADJUrlStrategy.h; sourceTree = "<group>"; };
+		6FBEE8F224E2C26F00FEF3F1 /* ADJUrlStrategy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADJUrlStrategy.m; sourceTree = "<group>"; };
+		6FBEE92424E422EB00FEF3F1 /* ADJUrlStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJUrlStrategy.m; sourceTree = "<group>"; };
+		6FBEE92524E422EB00FEF3F1 /* ADJUrlStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJUrlStrategy.h; sourceTree = "<group>"; };
+		6FBEE92A24E4230700FEF3F1 /* ADJUrlStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJUrlStrategy.h; sourceTree = "<group>"; };
+		6FBEE92B24E4230700FEF3F1 /* ADJUrlStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJUrlStrategy.m; sourceTree = "<group>"; };
+		6FBEE92E24E4231300FEF3F1 /* ADJUrlStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJUrlStrategy.h; sourceTree = "<group>"; };
+		6FBEE92F24E4231300FEF3F1 /* ADJUrlStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJUrlStrategy.m; sourceTree = "<group>"; };
+		6FBEE93224E4232800FEF3F1 /* ADJUrlStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJUrlStrategy.h; sourceTree = "<group>"; };
+		6FBEE93324E4232800FEF3F1 /* ADJUrlStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJUrlStrategy.m; sourceTree = "<group>"; };
 		6FCC84F71F278CF300D6A0ED /* ADJReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJReachability.m; sourceTree = "<group>"; };
 		6FCC84F81F278CF300D6A0ED /* ADJReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJReachability.h; sourceTree = "<group>"; };
 		6FCC85021F27944600D6A0ED /* ADJReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADJReachability.h; sourceTree = "<group>"; };
@@ -625,8 +666,6 @@
 		96325E84190E5CD900A97911 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		96325E86190E5CE400A97911 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		9644B7EA19F148F3008576FC /* ADJDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJDeviceInfo.h; sourceTree = "<group>"; };
-		9648C5E61CD1765E00A3B049 /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
-		9648C5E71CD1765E00A3B049 /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
 		9648C5E81CD1765E00A3B049 /* WebViewJavascriptBridge_JS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge_JS.h; sourceTree = "<group>"; };
 		9648C5E91CD1765E00A3B049 /* WebViewJavascriptBridge_JS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge_JS.m; sourceTree = "<group>"; };
 		9648C5EA1CD1765E00A3B049 /* WebViewJavascriptBridgeBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridgeBase.h; sourceTree = "<group>"; };
@@ -805,19 +844,32 @@
 		9D0E2E5D210B575600133B4F /* AdjustBridgeRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustBridgeRegister.h; sourceTree = "<group>"; };
 		9D0E2E5F210B575600133B4F /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
 		9D0E2E61210B575600133B4F /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
-		9D0E2E62210B575600133B4F /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
 		9D0E2E63210B575600133B4F /* WebViewJavascriptBridge_JS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge_JS.h; sourceTree = "<group>"; };
 		9D0E2E64210B575600133B4F /* WebViewJavascriptBridgeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridgeBase.h; sourceTree = "<group>"; };
 		9D0E2E66210B575600133B4F /* WebViewJavascriptBridge_JS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge_JS.m; sourceTree = "<group>"; };
-		9D0E2E67210B575600133B4F /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		9D0E2E68210B575600133B4F /* WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		9D0E2E69210B575600133B4F /* AdjustBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustBridge.h; sourceTree = "<group>"; };
 		9D0E2E6A210B575600133B4F /* AdjustBridgeRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdjustBridgeRegister.m; sourceTree = "<group>"; };
-		9D449DAD1E6ED22900E7E80B /* AdjustExample-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdjustExample-iOS.xcodeproj"; path = "examples/AdjustExample-iOS/AdjustExample-iOS.xcodeproj"; sourceTree = "<group>"; };
+		9D2F23E02447CE5C00B7CA90 /* ADJSubscription.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADJSubscription.h; sourceTree = "<group>"; };
+		9D2F23E12447CE5C00B7CA90 /* ADJSubscription.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADJSubscription.m; sourceTree = "<group>"; };
+		9D2F23F62447DCE800B7CA90 /* ADJSubscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJSubscription.m; sourceTree = "<group>"; };
+		9D2F23F72447DCE800B7CA90 /* ADJSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJSubscription.h; sourceTree = "<group>"; };
+		9D2F23FA2447DD2500B7CA90 /* ADJSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJSubscription.h; sourceTree = "<group>"; };
+		9D2F23FB2447DD2500B7CA90 /* ADJSubscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJSubscription.m; sourceTree = "<group>"; };
+		9D2F23FE2447DD3600B7CA90 /* ADJSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJSubscription.h; sourceTree = "<group>"; };
+		9D2F23FF2447DD3700B7CA90 /* ADJSubscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJSubscription.m; sourceTree = "<group>"; };
+		9D2F24022447DD6000B7CA90 /* ADJSubscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJSubscription.m; sourceTree = "<group>"; };
+		9D2F24032447DD6000B7CA90 /* ADJSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJSubscription.h; sourceTree = "<group>"; };
 		9D449DB31E6ED23400E7E80B /* AdjustExample-iWatch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdjustExample-iWatch.xcodeproj"; path = "examples/AdjustExample-iWatch/AdjustExample-iWatch.xcodeproj"; sourceTree = "<group>"; };
 		9D449DBF1E6ED23900E7E80B /* AdjustExample-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdjustExample-Swift.xcodeproj"; path = "examples/AdjustExample-Swift/AdjustExample-Swift.xcodeproj"; sourceTree = "<group>"; };
 		9D449DC51E6ED24000E7E80B /* AdjustExample-tvOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdjustExample-tvOS.xcodeproj"; path = "examples/AdjustExample-tvOS/AdjustExample-tvOS.xcodeproj"; sourceTree = "<group>"; };
 		9D449DCB1E6ED24400E7E80B /* AdjustExample-WebView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdjustExample-WebView.xcodeproj"; path = "examples/AdjustExample-WebView/AdjustExample-WebView.xcodeproj"; sourceTree = "<group>"; };
+		9D651BE125B25A64006D69D6 /* ADJThirdPartySharing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJThirdPartySharing.m; sourceTree = "<group>"; };
+		9D651BF425B25A64006D69D6 /* ADJThirdPartySharing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJThirdPartySharing.h; sourceTree = "<group>"; };
+		9D651C8625B26DF4006D69D6 /* ADJThirdPartySharing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJThirdPartySharing.h; sourceTree = "<group>"; };
+		9D651C8725B26DF5006D69D6 /* ADJThirdPartySharing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJThirdPartySharing.m; sourceTree = "<group>"; };
+		9D651C9325B26E1B006D69D6 /* ADJThirdPartySharing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJThirdPartySharing.m; sourceTree = "<group>"; };
+		9D651C9425B26E1B006D69D6 /* ADJThirdPartySharing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJThirdPartySharing.h; sourceTree = "<group>"; };
 		9D7431E61EB9F9B700969F14 /* AdjustExampleTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdjustExampleTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7431E91EB9F9B700969F14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9D7431EB1EB9F9B700969F14 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -829,6 +881,7 @@
 		9D7431F71EB9F9B700969F14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D7431F91EB9F9B700969F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D9D154D212EB3D00081445E /* AdjustExample-FbPixel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdjustExample-FbPixel.xcodeproj"; path = "examples/AdjustExample-FbPixel/AdjustExample-FbPixel.xcodeproj"; sourceTree = "<group>"; };
+		9DBE560723054FCC0065E19C /* AdjustExample-ObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdjustExample-ObjC.xcodeproj"; path = "examples/AdjustExample-ObjC/AdjustExample-ObjC.xcodeproj"; sourceTree = "<group>"; };
 		9DD0E9AC1F44690B00B2A759 /* ADJUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJUserDefaults.h; sourceTree = "<group>"; };
 		9DD0E9AD1F44690B00B2A759 /* ADJUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJUserDefaults.m; sourceTree = "<group>"; };
 		9DE354D22100726300D211C9 /* AdjustSdkIm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdjustSdkIm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1209,8 +1262,6 @@
 		9648C5E51CD1765E00A3B049 /* WebViewJavascriptBridge */ = {
 			isa = PBXGroup;
 			children = (
-				9648C5E61CD1765E00A3B049 /* WebViewJavascriptBridge.h */,
-				9648C5E71CD1765E00A3B049 /* WebViewJavascriptBridge.m */,
 				9648C5E81CD1765E00A3B049 /* WebViewJavascriptBridge_JS.h */,
 				9648C5E91CD1765E00A3B049 /* WebViewJavascriptBridge_JS.m */,
 				9648C5EA1CD1765E00A3B049 /* WebViewJavascriptBridgeBase.h */,
@@ -1343,6 +1394,12 @@
 				6FCC84F71F278CF300D6A0ED /* ADJReachability.m */,
 				9DD0E9AC1F44690B00B2A759 /* ADJUserDefaults.h */,
 				9DD0E9AD1F44690B00B2A759 /* ADJUserDefaults.m */,
+				9D2F23E02447CE5C00B7CA90 /* ADJSubscription.h */,
+				9D2F23E12447CE5C00B7CA90 /* ADJSubscription.m */,
+				6FBEE8F124E2C26F00FEF3F1 /* ADJUrlStrategy.h */,
+				6FBEE8F224E2C26F00FEF3F1 /* ADJUrlStrategy.m */,
+				9D651BF425B25A64006D69D6 /* ADJThirdPartySharing.h */,
+				9D651BE125B25A64006D69D6 /* ADJThirdPartySharing.m */,
 			);
 			path = Adjust;
 			sourceTree = "<group>";
@@ -1443,6 +1500,12 @@
 				9D0E2E58210B575600133B4F /* ADJTimerCycle.h */,
 				9D0E2E59210B575600133B4F /* ADJActivityHandler.m */,
 				9D0E2E5A210B575600133B4F /* ADJReachability.m */,
+				9D2F24032447DD6000B7CA90 /* ADJSubscription.h */,
+				9D2F24022447DD6000B7CA90 /* ADJSubscription.m */,
+				6FBEE93224E4232800FEF3F1 /* ADJUrlStrategy.h */,
+				6FBEE93324E4232800FEF3F1 /* ADJUrlStrategy.m */,
+				6F84511025B1B1380004C7C0 /* ADJThirdPartySharing.h */,
+				6F84512325B1B1380004C7C0 /* ADJThirdPartySharing.m */,
 			);
 			path = Adjust;
 			sourceTree = SOURCE_ROOT;
@@ -1477,8 +1540,6 @@
 			children = (
 				9D0E2E63210B575600133B4F /* WebViewJavascriptBridge_JS.h */,
 				9D0E2E66210B575600133B4F /* WebViewJavascriptBridge_JS.m */,
-				9D0E2E67210B575600133B4F /* WebViewJavascriptBridge.h */,
-				9D0E2E62210B575600133B4F /* WebViewJavascriptBridge.m */,
 				9D0E2E68210B575600133B4F /* WKWebViewJavascriptBridge.h */,
 				9D0E2E61210B575600133B4F /* WKWebViewJavascriptBridge.m */,
 				9D0E2E64210B575600133B4F /* WebViewJavascriptBridgeBase.h */,
@@ -1490,7 +1551,7 @@
 		9D449DAC1E6ED20400E7E80B /* Example Apps */ = {
 			isa = PBXGroup;
 			children = (
-				9D449DAD1E6ED22900E7E80B /* AdjustExample-iOS.xcodeproj */,
+				9DBE560723054FCC0065E19C /* AdjustExample-ObjC.xcodeproj */,
 				9D449DBF1E6ED23900E7E80B /* AdjustExample-Swift.xcodeproj */,
 				9D449DCB1E6ED24400E7E80B /* AdjustExample-WebView.xcodeproj */,
 				9D449DC51E6ED24000E7E80B /* AdjustExample-tvOS.xcodeproj */,
@@ -1499,14 +1560,6 @@
 				9D9D154D212EB3D00081445E /* AdjustExample-FbPixel.xcodeproj */,
 			);
 			name = "Example Apps";
-			sourceTree = "<group>";
-		};
-		9D449DAE1E6ED22900E7E80B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9D449DB21E6ED22900E7E80B /* AdjustExample-iOS.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		9D449DB41E6ED23400E7E80B /* Products */ = {
@@ -1571,6 +1624,14 @@
 			isa = PBXGroup;
 			children = (
 				9D9D1552212EB3D00081445E /* AdjustExample-FbPixel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DBE560823054FCC0065E19C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DBE560C23054FCC0065E19C /* AdjustExample-ObjC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1649,6 +1710,12 @@
 				9DEAF0F2210072BC005CAEDB /* ADJTimerCycle.h */,
 				9DEAF0F3210072BC005CAEDB /* ADJActivityHandler.m */,
 				9DEAF0F4210072BC005CAEDB /* ADJReachability.m */,
+				9D2F23FA2447DD2500B7CA90 /* ADJSubscription.h */,
+				9D2F23FB2447DD2500B7CA90 /* ADJSubscription.m */,
+				6FBEE92A24E4230700FEF3F1 /* ADJUrlStrategy.h */,
+				6FBEE92B24E4230700FEF3F1 /* ADJUrlStrategy.m */,
+				9D651C8625B26DF4006D69D6 /* ADJThirdPartySharing.h */,
+				9D651C8725B26DF5006D69D6 /* ADJThirdPartySharing.m */,
 			);
 			path = Adjust;
 			sourceTree = SOURCE_ROOT;
@@ -1728,6 +1795,12 @@
 				96B671131D788F4A0090A023 /* ADJSessionParameters.m */,
 				6FCC85021F27944600D6A0ED /* ADJReachability.h */,
 				6FCC85031F27944600D6A0ED /* ADJReachability.m */,
+				9D2F23F72447DCE800B7CA90 /* ADJSubscription.h */,
+				9D2F23F62447DCE800B7CA90 /* ADJSubscription.m */,
+				6FBEE92524E422EB00FEF3F1 /* ADJUrlStrategy.h */,
+				6FBEE92424E422EB00FEF3F1 /* ADJUrlStrategy.m */,
+				6FBE0C6C2577CDAC00EC2CE0 /* ADJThirdPartySharing.h */,
+				6FBE0C6D2577CDAC00EC2CE0 /* ADJThirdPartySharing.m */,
 			);
 			path = Adjust;
 			sourceTree = SOURCE_ROOT;
@@ -1827,6 +1900,12 @@
 				96B671171D788F7A0090A023 /* ADJSessionParameters.m */,
 				6FCC85071F27948700D6A0ED /* ADJReachability.h */,
 				6FCC85061F27948700D6A0ED /* ADJReachability.m */,
+				9D2F23FE2447DD3600B7CA90 /* ADJSubscription.h */,
+				9D2F23FF2447DD3700B7CA90 /* ADJSubscription.m */,
+				6FBEE92E24E4231300FEF3F1 /* ADJUrlStrategy.h */,
+				6FBEE92F24E4231300FEF3F1 /* ADJUrlStrategy.m */,
+				9D651C9425B26E1B006D69D6 /* ADJThirdPartySharing.h */,
+				9D651C9325B26E1B006D69D6 /* ADJThirdPartySharing.m */,
 			);
 			path = Adjust;
 			sourceTree = SOURCE_ROOT;
@@ -1854,14 +1933,17 @@
 				96BCFBCD1AC99231005A65C5 /* Adjust.h in Headers */,
 				96BCFBCE1AC99235005A65C5 /* ADJEvent.h in Headers */,
 				96BCFBD01AC9923F005A65C5 /* ADJConfig.h in Headers */,
+				6FBEE92824E422EB00FEF3F1 /* ADJUrlStrategy.h in Headers */,
 				9D363AC31BDA50FA00B47FE9 /* ADJLogger.h in Headers */,
 				96BCFBD11AC99246005A65C5 /* ADJAttribution.h in Headers */,
+				9D2F23E22447CE5C00B7CA90 /* ADJSubscription.h in Headers */,
 				9601CAE81C74BAAE00670879 /* ADJEventFailure.h in Headers */,
-				9601CAE41C74B70600670879 /* ADJEventSuccess.h in Headers */,
-				6FCC85011F278CF300D6A0ED /* ADJReachability.h in Headers */,
-				96BCFBD41AC99338005A65C5 /* NSData+ADJAdditions.h in Headers */,
 				968173871C3C2D36002AE1DE /* ADJSessionFailure.h in Headers */,
 				968173831C3C2D07002AE1DE /* ADJSessionSuccess.h in Headers */,
+				9601CAE41C74B70600670879 /* ADJEventSuccess.h in Headers */,
+				6FCC85011F278CF300D6A0ED /* ADJReachability.h in Headers */,
+				9D651BF625B25A64006D69D6 /* ADJThirdPartySharing.h in Headers */,
+				96BCFBD41AC99338005A65C5 /* NSData+ADJAdditions.h in Headers */,
 				96BCFBD21AC99332005A65C5 /* NSString+ADJAdditions.h in Headers */,
 				96BCFBD31AC99336005A65C5 /* UIDevice+ADJAdditions.h in Headers */,
 				96BCFBD51AC9933E005A65C5 /* ADJActivityHandler.h in Headers */,
@@ -1894,7 +1976,6 @@
 				9D0E2E06210B570600133B4F /* AdjustSdkWebBridge.h in Headers */,
 				9D0E2EBA210B575600133B4F /* AdjustBridge.h in Headers */,
 				9D0E2EAF210B575600133B4F /* AdjustBridgeRegister.h in Headers */,
-				9D0E2EB8210B575600133B4F /* WebViewJavascriptBridge.h in Headers */,
 				9D0E2EB9210B575600133B4F /* WKWebViewJavascriptBridge.h in Headers */,
 				9D0E2EB4210B575600133B4F /* WebViewJavascriptBridge_JS.h in Headers */,
 				9D0E2EB5210B575600133B4F /* WebViewJavascriptBridgeBase.h in Headers */,
@@ -1902,11 +1983,13 @@
 				9D0E2E6B210B575600133B4F /* ADJConfig.h in Headers */,
 				9D0E2E8F210B575600133B4F /* ADJEvent.h in Headers */,
 				9D0E2E73210B575600133B4F /* ADJAttribution.h in Headers */,
+				9D2F24052447DD6000B7CA90 /* ADJSubscription.h in Headers */,
 				9D0E2EA2210B575600133B4F /* ADJEventFailure.h in Headers */,
 				9D0E2EA1210B575600133B4F /* ADJEventSuccess.h in Headers */,
 				9D0E2E9E210B575600133B4F /* ADJSessionFailure.h in Headers */,
 				9D0E2EA4210B575600133B4F /* ADJSessionSuccess.h in Headers */,
 				9D0E2EA8210B575600133B4F /* ADJLogger.h in Headers */,
+				6F84512425B1B1380004C7C0 /* ADJThirdPartySharing.h in Headers */,
 				9D0E2E92210B575600133B4F /* ADJKeychain.h in Headers */,
 				9D0E2E7D210B575600133B4F /* ADJAdjustFactory.h in Headers */,
 				9D0E2E76210B575600133B4F /* ADJActivityKind.h in Headers */,
@@ -1917,6 +2000,7 @@
 				9D0E2E98210B575600133B4F /* NSString+ADJAdditions.h in Headers */,
 				9D0E2EA7210B575600133B4F /* ADJBackoffStrategy.h in Headers */,
 				9D0E2E8C210B575600133B4F /* ADJDeviceInfo.h in Headers */,
+				6FBEE93424E4232800FEF3F1 /* ADJUrlStrategy.h in Headers */,
 				9D0E2E90210B575600133B4F /* ADJSdkClickHandler.h in Headers */,
 				9D0E2E81210B575600133B4F /* ADJUtil.h in Headers */,
 				9D0E2E78210B575600133B4F /* ADJPackageHandler.h in Headers */,
@@ -1941,14 +2025,17 @@
 				9DE354D62100726300D211C9 /* AdjustSdkIm.h in Headers */,
 				9DEAF11C210072BC005CAEDB /* ADJKeychain.h in Headers */,
 				9DEAF0F9210072BC005CAEDB /* Adjust.h in Headers */,
+				6FBEE92C24E4230800FEF3F1 /* ADJUrlStrategy.h in Headers */,
 				9DEAF0F5210072BC005CAEDB /* ADJConfig.h in Headers */,
 				9DEAF119210072BC005CAEDB /* ADJEvent.h in Headers */,
+				9D2F23FC2447DD2500B7CA90 /* ADJSubscription.h in Headers */,
 				9DEAF0FD210072BC005CAEDB /* ADJAttribution.h in Headers */,
 				9DEAF12E210072BC005CAEDB /* ADJSessionSuccess.h in Headers */,
+				9DEAF132210072BC005CAEDB /* ADJLogger.h in Headers */,
+				9DEAF12C210072BC005CAEDB /* ADJEventFailure.h in Headers */,
 				9DEAF128210072BC005CAEDB /* ADJSessionFailure.h in Headers */,
 				9DEAF12B210072BC005CAEDB /* ADJEventSuccess.h in Headers */,
-				9DEAF12C210072BC005CAEDB /* ADJEventFailure.h in Headers */,
-				9DEAF132210072BC005CAEDB /* ADJLogger.h in Headers */,
+				9D651C8825B26DF5006D69D6 /* ADJThirdPartySharing.h in Headers */,
 				9DEAF107210072BC005CAEDB /* ADJAdjustFactory.h in Headers */,
 				9DEAF100210072BC005CAEDB /* ADJActivityKind.h in Headers */,
 				9DEAF112210072BC005CAEDB /* ADJUserDefaults.h in Headers */,
@@ -1982,13 +2069,16 @@
 				9DFA37B71C0F21D600782607 /* AdjustSdk.h in Headers */,
 				9DF9C9431D6F3CA5008E362F /* Adjust.h in Headers */,
 				9DF9C9231D6F3CA5008E362F /* ADJEvent.h in Headers */,
+				6FBEE92924E422EB00FEF3F1 /* ADJUrlStrategy.h in Headers */,
 				9DF9C91F1D6F3CA5008E362F /* ADJConfig.h in Headers */,
 				9DF9C92B1D6F3CA5008E362F /* ADJLogger.h in Headers */,
 				9DF9C9191D6F3CA5008E362F /* ADJAttribution.h in Headers */,
+				9D2F23F92447DCE800B7CA90 /* ADJSubscription.h in Headers */,
 				9DF9C9251D6F3CA5008E362F /* ADJEventFailure.h in Headers */,
 				9DF9C9271D6F3CA5008E362F /* ADJEventSuccess.h in Headers */,
-				9DF9C9371D6F3CA5008E362F /* ADJSessionFailure.h in Headers */,
 				9DF9C9391D6F3CA5008E362F /* ADJSessionSuccess.h in Headers */,
+				9DF9C9371D6F3CA5008E362F /* ADJSessionFailure.h in Headers */,
+				6FBE0C6E2577CDAC00EC2CE0 /* ADJThirdPartySharing.h in Headers */,
 				9DDF24431F7BE4BA001C1A70 /* ADJUserDefaults.h in Headers */,
 				6FCC85041F27945E00D6A0ED /* ADJReachability.h in Headers */,
 				9DF9C9111D6F3CA5008E362F /* NSData+ADJAdditions.h in Headers */,
@@ -2023,13 +2113,16 @@
 				9DFB06131D747070006D48FC /* AdjustSdkTv.h in Headers */,
 				9DFB06941D7470C0006D48FC /* Adjust.h in Headers */,
 				9DFB06741D7470C0006D48FC /* ADJEvent.h in Headers */,
+				6FBEE93024E4231400FEF3F1 /* ADJUrlStrategy.h in Headers */,
 				9DFB06701D7470C0006D48FC /* ADJConfig.h in Headers */,
 				9DFB067C1D7470C0006D48FC /* ADJLogger.h in Headers */,
 				9DFB066A1D7470C0006D48FC /* ADJAttribution.h in Headers */,
+				9D2F24002447DD3700B7CA90 /* ADJSubscription.h in Headers */,
 				9DFB06761D7470C0006D48FC /* ADJEventFailure.h in Headers */,
 				9DFB06781D7470C0006D48FC /* ADJEventSuccess.h in Headers */,
-				9DFB06881D7470C0006D48FC /* ADJSessionFailure.h in Headers */,
 				9DFB068A1D7470C0006D48FC /* ADJSessionSuccess.h in Headers */,
+				9DFB06881D7470C0006D48FC /* ADJSessionFailure.h in Headers */,
+				9D651C9625B26E1B006D69D6 /* ADJThirdPartySharing.h in Headers */,
 				9DDF24451F7BE4E7001C1A70 /* ADJUserDefaults.h in Headers */,
 				6FCC85081F27948C00D6A0ED /* ADJReachability.h in Headers */,
 				9DFB06621D7470C0006D48FC /* NSData+ADJAdditions.h in Headers */,
@@ -2209,7 +2302,7 @@
 		9679920518BBAE2800394606 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "adjust GmbH";
 				TargetAttributes = {
 					9615158E1CD2CB2C0022D336 = {
@@ -2244,7 +2337,7 @@
 			};
 			buildConfigurationList = 9679920818BBAE2800394606 /* Build configuration list for PBXProject "Adjust" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -2263,12 +2356,12 @@
 					ProjectRef = 9D0167FE20FF88DE0029CFFF /* AdjustExample-iMessage.xcodeproj */;
 				},
 				{
-					ProductGroup = 9D449DAE1E6ED22900E7E80B /* Products */;
-					ProjectRef = 9D449DAD1E6ED22900E7E80B /* AdjustExample-iOS.xcodeproj */;
-				},
-				{
 					ProductGroup = 9D449DB41E6ED23400E7E80B /* Products */;
 					ProjectRef = 9D449DB31E6ED23400E7E80B /* AdjustExample-iWatch.xcodeproj */;
+				},
+				{
+					ProductGroup = 9DBE560823054FCC0065E19C /* Products */;
+					ProjectRef = 9DBE560723054FCC0065E19C /* AdjustExample-ObjC.xcodeproj */;
 				},
 				{
 					ProductGroup = 9D449DC01E6ED23900E7E80B /* Products */;
@@ -2378,13 +2471,6 @@
 			remoteRef = 9D01680520FF88DE0029CFFF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9D449DB21E6ED22900E7E80B /* AdjustExample-iOS.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "AdjustExample-iOS.app";
-			remoteRef = 9D449DB11E6ED22900E7E80B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		9D449DBA1E6ED23400E7E80B /* AdjustExample-iWatch.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -2432,6 +2518,13 @@
 			fileType = wrapper.application;
 			path = "AdjustExample-FbPixel.app";
 			remoteRef = 9D9D1551212EB3D00081445E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DBE560C23054FCC0065E19C /* AdjustExample-ObjC.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "AdjustExample-ObjC.app";
+			remoteRef = 9DBE560B23054FCC0065E19C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -2516,7 +2609,6 @@
 			files = (
 				961515A71CD2CBB00022D336 /* AdjustBridge.m in Sources */,
 				968595EE1D0B25970011CA2B /* AdjustBridgeRegister.m in Sources */,
-				961515A31CD2CB9D0022D336 /* WebViewJavascriptBridge.m in Sources */,
 				961515A41CD2CBA20022D336 /* WebViewJavascriptBridge_JS.m in Sources */,
 				961515A61CD2CBAC0022D336 /* WKWebViewJavascriptBridge.m in Sources */,
 				961515A51CD2CBA80022D336 /* WebViewJavascriptBridgeBase.m in Sources */,
@@ -2538,10 +2630,13 @@
 				96E5E39218BBB48A008E7B30 /* ADJAdjustFactory.m in Sources */,
 				96E5E39318BBB48A008E7B30 /* ADJLogger.m in Sources */,
 				96E5E39518BBB48A008E7B30 /* ADJPackageHandler.m in Sources */,
+				9D651BF525B25A64006D69D6 /* ADJThirdPartySharing.m in Sources */,
 				96E5E39418BBB48A008E7B30 /* ADJPackageBuilder.m in Sources */,
 				6FCC85001F278CF300D6A0ED /* ADJReachability.m in Sources */,
 				96E5E39618BBB48A008E7B30 /* ADJRequestHandler.m in Sources */,
+				9D2F23E32447CE5C00B7CA90 /* ADJSubscription.m in Sources */,
 				96E5E39918BBB48A008E7B30 /* ADJUtil.m in Sources */,
+				6FBEE92624E422EB00FEF3F1 /* ADJUrlStrategy.m in Sources */,
 				9609BC6A19EEA55800E02303 /* ADJEvent.m in Sources */,
 				965307F61A000DA400107FF9 /* ADJDeviceInfo.m in Sources */,
 				969952CF1A012F5300928462 /* ADJAttributionHandler.m in Sources */,
@@ -2602,7 +2697,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D0E2E93210B575600133B4F /* NSString+ADJAdditions.m in Sources */,
-				9D0E2EB3210B575600133B4F /* WebViewJavascriptBridge.m in Sources */,
 				9D0E2E7E210B575600133B4F /* ADJEventSuccess.m in Sources */,
 				9D0E2E7C210B575600133B4F /* ADJEventFailure.m in Sources */,
 				9D0E2E7F210B575600133B4F /* ADJActivityState.m in Sources */,
@@ -2628,11 +2722,14 @@
 				9D0E2E6D210B575600133B4F /* ADJTimerOnce.m in Sources */,
 				9D0E2E77210B575600133B4F /* ADJEvent.m in Sources */,
 				9D0E2E8D210B575600133B4F /* ADJConfig.m in Sources */,
+				9D2F24042447DD6000B7CA90 /* ADJSubscription.m in Sources */,
 				9D0E2E6E210B575600133B4F /* ADJAttributionHandler.m in Sources */,
 				9D0E2E87210B575600133B4F /* ADJBackoffStrategy.m in Sources */,
 				9D0E2EBB210B575600133B4F /* AdjustBridgeRegister.m in Sources */,
+				6F84512525B1B1380004C7C0 /* ADJThirdPartySharing.m in Sources */,
 				9D0E2E84210B575600133B4F /* ADJTimerCycle.m in Sources */,
 				9D0E2E6C210B575600133B4F /* ADJDeviceInfo.m in Sources */,
+				6FBEE93524E4232800FEF3F1 /* ADJUrlStrategy.m in Sources */,
 				9D0E2EA5210B575600133B4F /* ADJPackageBuilder.m in Sources */,
 				9D0E2EAD210B575600133B4F /* ADJReachability.m in Sources */,
 				9D0E2E99210B575600133B4F /* ADJAttribution.m in Sources */,
@@ -2668,9 +2765,11 @@
 				9DEAF113210072BC005CAEDB /* Adjust.m in Sources */,
 				9DEAF136210072BC005CAEDB /* ADJActivityHandler.m in Sources */,
 				9DEAF0FE210072BC005CAEDB /* ADJKeychain.m in Sources */,
+				9D651C8925B26DF5006D69D6 /* ADJThirdPartySharing.m in Sources */,
 				9DEAF10A210072BC005CAEDB /* ADJSessionFailure.m in Sources */,
 				9DEAF121210072BC005CAEDB /* UIDevice+ADJAdditions.m in Sources */,
 				9DEAF105210072BC005CAEDB /* ADJSessionSuccess.m in Sources */,
+				9D2F23FD2447DD2500B7CA90 /* ADJSubscription.m in Sources */,
 				9DEAF124210072BC005CAEDB /* ADJSystemProfile.m in Sources */,
 				9DEAF0FB210072BC005CAEDB /* ADJRequestHandler.m in Sources */,
 				9DEAF11B210072BC005CAEDB /* ADJActivityKind.m in Sources */,
@@ -2678,6 +2777,7 @@
 				9DEAF118210072BC005CAEDB /* ADJPackageHandler.m in Sources */,
 				9DEAF110210072BC005CAEDB /* ADJLogger.m in Sources */,
 				9DEAF0F7210072BC005CAEDB /* ADJTimerOnce.m in Sources */,
+				6FBEE92D24E4230800FEF3F1 /* ADJUrlStrategy.m in Sources */,
 				9DEAF101210072BC005CAEDB /* ADJEvent.m in Sources */,
 				9DEAF117210072BC005CAEDB /* ADJConfig.m in Sources */,
 				9DEAF0F8210072BC005CAEDB /* ADJAttributionHandler.m in Sources */,
@@ -2708,9 +2808,11 @@
 				9DF9C9101D6F3CA5008E362F /* ADJActivityState.m in Sources */,
 				9DF9C9181D6F3CA5008E362F /* ADJAdjustFactory.m in Sources */,
 				9DF9C92C1D6F3CA5008E362F /* ADJLogger.m in Sources */,
+				6FBE0C6F2577CDAC00EC2CE0 /* ADJThirdPartySharing.m in Sources */,
 				9DF9C92E1D6F3CA5008E362F /* ADJPackageBuilder.m in Sources */,
 				9DF9C9301D6F3CA5008E362F /* ADJPackageHandler.m in Sources */,
 				6FCC85051F27946100D6A0ED /* ADJReachability.m in Sources */,
+				9D2F23F82447DCE800B7CA90 /* ADJSubscription.m in Sources */,
 				9DF9C9321D6F3CA5008E362F /* ADJRequestHandler.m in Sources */,
 				9DF9C9461D6F3CA5008E362F /* ADJUtil.m in Sources */,
 				9DF9C9241D6F3CA5008E362F /* ADJEvent.m in Sources */,
@@ -2718,6 +2820,7 @@
 				9DF9C91C1D6F3CA5008E362F /* ADJAttributionHandler.m in Sources */,
 				9DF9C91A1D6F3CA5008E362F /* ADJAttribution.m in Sources */,
 				9DF9C9201D6F3CA5008E362F /* ADJConfig.m in Sources */,
+				6FBEE92724E422EB00FEF3F1 /* ADJUrlStrategy.m in Sources */,
 				9DF9C9401D6F3CA5008E362F /* ADJTimerOnce.m in Sources */,
 				9DF9C93E1D6F3CA5008E362F /* ADJTimerCycle.m in Sources */,
 				9DF9C9341D6F3CA5008E362F /* ADJResponseData.m in Sources */,
@@ -2748,9 +2851,11 @@
 				9DFB06611D7470C0006D48FC /* ADJActivityState.m in Sources */,
 				9DFB06691D7470C0006D48FC /* ADJAdjustFactory.m in Sources */,
 				9DFB067D1D7470C0006D48FC /* ADJLogger.m in Sources */,
+				9D651C9525B26E1B006D69D6 /* ADJThirdPartySharing.m in Sources */,
 				9DFB067F1D7470C0006D48FC /* ADJPackageBuilder.m in Sources */,
 				9DFB06811D7470C0006D48FC /* ADJPackageHandler.m in Sources */,
 				6FCC85091F27949000D6A0ED /* ADJReachability.m in Sources */,
+				9D2F24012447DD3700B7CA90 /* ADJSubscription.m in Sources */,
 				9DFB06831D7470C0006D48FC /* ADJRequestHandler.m in Sources */,
 				9DFB06971D7470C0006D48FC /* ADJUtil.m in Sources */,
 				9DFB06751D7470C0006D48FC /* ADJEvent.m in Sources */,
@@ -2758,6 +2863,7 @@
 				9DFB066D1D7470C0006D48FC /* ADJAttributionHandler.m in Sources */,
 				9DFB066B1D7470C0006D48FC /* ADJAttribution.m in Sources */,
 				9DFB06711D7470C0006D48FC /* ADJConfig.m in Sources */,
+				6FBEE93124E4231400FEF3F1 /* ADJUrlStrategy.m in Sources */,
 				9DFB06911D7470C0006D48FC /* ADJTimerOnce.m in Sources */,
 				9DFB068F1D7470C0006D48FC /* ADJTimerCycle.m in Sources */,
 				9DFB06851D7470C0006D48FC /* ADJResponseData.m in Sources */,
@@ -2829,6 +2935,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -2848,6 +2955,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -2881,6 +2989,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2890,7 +2999,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2934,6 +3043,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2943,6 +3053,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2966,6 +3077,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/Adjust.dst;
 				ENABLE_BITCODE = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -2990,6 +3102,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/Adjust.dst;
 				ENABLE_BITCODE = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",

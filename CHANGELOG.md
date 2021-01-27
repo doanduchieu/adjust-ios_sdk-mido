@@ -1,3 +1,166 @@
+### Version 4.25.1 (18th January 2021)
+#### Fixed
+- Fixed missing header error for SPM users from v4.25.0.
+
+---
+
+### Version 4.25.0 (16th January 2021)
+#### Added
+- Added support for Apple Search Ads attribution with usage of `AdServices.framework`.
+- Added `appTrackingAuthorizationStatus` getter to `Adjust` instance to be able to get current app tracking status.
+- Added improved measurement consent management and third party sharing system.
+
+---
+
+### Version 4.24.0 (9th December 2020)
+#### Added
+- Added possibility to get cost data information in attribution callback.
+- Added `setNeedsCost:` method to `ADJConfig` to indicate if cost data is needed in attribution callback (by default cost data will not be part of attribution callback if not enabled with this setter method).
+- Enabled position independent code generation.
+
+#### Changed
+- Improved logging.
+- Addressed Xcode warnings regarding deprecated API usage.
+- Removed some obsolete and unused API.
+
+#### Public PRs
+- Updated README (https://github.com/adjust/ios_sdk/pull/472).
+- Replaced `malloc` with more secure `calloc` calls (https://github.com/adjust/ios_sdk/pull/432).
+
+---
+
+### Version 4.23.2 (28th September 2020)
+#### Added
+- Added support for Swift Package Manager (thanks to @mstfy).
+
+---
+
+### Version 4.23.1 (16th September 2020)
+#### Fixed
+- Fixed warning about storing negative value to `NSUInteger` data type.
+- Fixed duplicated `ADJURLStrategy` symbols error when using static framework.
+
+---
+
+### Version 4.23.0 (19th August 2020)
+#### Added
+- Added communication with SKAdNetwork framework by default on iOS 14.
+- Added method `deactivateSKAdNetworkHandling` to `ADJConfig` to switch off default communication with SKAdNetwork framework.
+- Added wrapper method `requestTrackingAuthorizationWithCompletionHandler:` to `Adjust` to allow immediate propagation of user's choice to backend.
+- Added handling of new iAd framework error codes introduced in iOS 14.
+- Added sending of value of user's consent to be tracked with each package.
+- Added `setUrlStrategy:` method in `ADJConfig` class to allow selection of URL strategy for specific market.
+
+⚠️ **Note**: iOS 14 beta versions prior to 5 appear to have an issue when trying to use iAd framework API like described in [here](https://github.com/adjust/ios_sdk/issues/452). For testing of v4.23.0 version of SDK, please make sure you're using **iOS 14 beta 5 or later**.
+
+---
+
+### Version 4.22.2 (24th July 2020)
+#### Added
+- Added collection iAd framework communication errors metrics.
+
+---
+
+### Version 4.22.1 (5th June 2020)
+#### Fixed
+- Fixed `copyWithZone:` method implementation in `ADJSubscription.m` (thanks to @atilimcetin).
+
+---
+
+### Version 4.22.0 (29th May 2020)
+#### Added
+- Added subscription tracking feature.
+
+### Changed
+- Refactored networking part and moved it to request handler.
+- Added additional synchronisation in various cases of access to package queue and activity state.
+
+---
+
+### Version 4.21.3 (22nd April 2020)
+#### Changed
+- Added copying of each injected mutable property of `ADJEvent` class.
+- Synchronised access to callback/partner parameters in `ADJEvent` class.
+- Synchronised access to public API methods in `Adjust` class.
+
+#### Fixed
+- Removed iAd timer.
+- Removed activity package mutation scenarios after package has been created.
+
+---
+
+### Version 4.21.2 (15th April 2020)
+#### Fixed
+- Added check for timer source and block existence prior to starting it.
+
+---
+
+### Version 4.21.1 (9th April 2020)
+#### Added
+- Added support for Mac Catalyst (thanks to @rjchatfield).
+
+#### Changed
+- Replaced `available` attribute with a macro for non native SDKs compatibility.
+- Synchronised writing to package queue.
+- Updated communication flow with `iAd.framework`.
+
+#### Fixed
+- Added nullability check for path being written onto (thanks to @sidepelican).
+
+---
+
+### Version 4.21.0 (19th March 2020)
+#### Added
+- Added support for signature library as a plugin.
+- Added more aggressive sending retry logic for install session package.
+- Added additional parameters to `ad_revenue` package payload.
+
+#### Changed
+- Replaced deprecated methods in iOS 13 for (un)archiving objects.
+
+#### Fixed
+- Added nullability check for `NSString` object returned by `adjUrlDecode` method (thanks to @marinofelipe).
+
+---
+
+### Version 4.20.0 (15th January 2020)
+#### Added
+- Added external device ID support.
+
+---
+
+### Version 4.19.0 (9th December 2019)
+#### Added
+- Added `disableThirdPartySharing` method to `Adjust` interface to allow disabling of data sharing with third parties outside of Adjust ecosystem.
+
+---
+
+### Version 4.18.3 (27th September 2019)
+#### Changed
+- Removed reading of Facebook advertising identifier which sometimes caused blocking of the main thread.
+
+---
+
+### Version 4.18.2 (11th September 2019)
+#### Changed
+- Removed methods from Adjust SDK web view bridge which are dealing with `UIWebView` objects to address `ITMS-90809`. Please, check web views [migration guide](doc/english/web_view_migration.md) to see how to migrate to `v4.18.2` and also check our [web view example app](examples/AdjustExample-WebView) to see how current Adjust web view SDK should be implemented.
+- Replaced deprecated API for better iOS 13 compatibility.
+
+---
+
+### Version 4.18.1 (2nd September 2019)
+#### Fixed
+- Fixed device token parsing to string, changed in iOS 13.
+
+---
+
+### Version 4.18.0 (26th June 2019)
+#### Added
+- Added `trackAdRevenue:payload:` method to `Adjust` interface to allow tracking of ad revenue. With this release added support for `MoPub` ad revenue tracking.
+- Added reading of Facebook anonymous ID if available.
+
+---
+
 ### Version 4.17.3 (24th May 2019)
 #### Changed
 - SDK will check for iAd information upon re-enabling.

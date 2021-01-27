@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F84514A25B1B1F40004C7C0 /* ADJThirdPartySharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F84514825B1B1F40004C7C0 /* ADJThirdPartySharing.m */; };
+		6FBEE91A24E4218C00FEF3F1 /* ADJUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEE91824E4218B00FEF3F1 /* ADJUrlStrategy.m */; };
 		9D01676920FF812B0029CFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D01676820FF812B0029CFFF /* Assets.xcassets */; };
 		9D01677020FF812B0029CFFF /* AdjustExample-iMessage MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9D01676F20FF812B0029CFFF /* AdjustExample-iMessage MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9D01677520FF812B0029CFFF /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D01677420FF812B0029CFFF /* Messages.framework */; };
@@ -46,6 +48,7 @@
 		9D01687420FF88F60029CFFF /* ADJUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D01684E20FF88F60029CFFF /* ADJUserDefaults.m */; };
 		9D01687620FF88F60029CFFF /* ADJActivityHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D01685420FF88F60029CFFF /* ADJActivityHandler.m */; };
 		9D01687720FF88F60029CFFF /* ADJReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D01685520FF88F60029CFFF /* ADJReachability.m */; };
+		9D2F241A2447DE4700B7CA90 /* ADJSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F24192447DE4700B7CA90 /* ADJSubscription.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6F84514825B1B1F40004C7C0 /* ADJThirdPartySharing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJThirdPartySharing.m; sourceTree = "<group>"; };
+		6F84514925B1B1F40004C7C0 /* ADJThirdPartySharing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJThirdPartySharing.h; sourceTree = "<group>"; };
+		6FBEE91824E4218B00FEF3F1 /* ADJUrlStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJUrlStrategy.m; sourceTree = "<group>"; };
+		6FBEE91924E4218B00FEF3F1 /* ADJUrlStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJUrlStrategy.h; sourceTree = "<group>"; };
 		9D01676520FF81280029CFFF /* AdjustExample-iMessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AdjustExample-iMessage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D01676820FF812B0029CFFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D01676A20FF812B0029CFFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,6 +156,8 @@
 		9D01685320FF88F60029CFFF /* ADJTimerCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJTimerCycle.h; sourceTree = "<group>"; };
 		9D01685420FF88F60029CFFF /* ADJActivityHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJActivityHandler.m; sourceTree = "<group>"; };
 		9D01685520FF88F60029CFFF /* ADJReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJReachability.m; sourceTree = "<group>"; };
+		9D2F24182447DE4700B7CA90 /* ADJSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJSubscription.h; sourceTree = "<group>"; };
+		9D2F24192447DE4700B7CA90 /* ADJSubscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJSubscription.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +285,12 @@
 				9D01685320FF88F60029CFFF /* ADJTimerCycle.h */,
 				9D01685420FF88F60029CFFF /* ADJActivityHandler.m */,
 				9D01685520FF88F60029CFFF /* ADJReachability.m */,
+				9D2F24182447DE4700B7CA90 /* ADJSubscription.h */,
+				9D2F24192447DE4700B7CA90 /* ADJSubscription.m */,
+				6FBEE91924E4218B00FEF3F1 /* ADJUrlStrategy.h */,
+				6FBEE91824E4218B00FEF3F1 /* ADJUrlStrategy.m */,
+				6F84514925B1B1F40004C7C0 /* ADJThirdPartySharing.h */,
+				6F84514825B1B1F40004C7C0 /* ADJThirdPartySharing.m */,
 			);
 			name = Adjust;
 			path = ../../../Adjust;
@@ -337,7 +352,7 @@
 		9D01675F20FF81280029CFFF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Adjust GmbH";
 				TargetAttributes = {
 					9D01676420FF81280029CFFF = {
@@ -408,7 +423,9 @@
 				9D01686720FF88F60029CFFF /* ADJConfig.m in Sources */,
 				9D01687720FF88F60029CFFF /* ADJReachability.m in Sources */,
 				9D01685A20FF88F60029CFFF /* ADJKeychain.m in Sources */,
+				6FBEE91A24E4218C00FEF3F1 /* ADJUrlStrategy.m in Sources */,
 				9D01686A20FF88F60029CFFF /* NSString+ADJAdditions.m in Sources */,
+				6F84514A25B1B1F40004C7C0 /* ADJThirdPartySharing.m in Sources */,
 				9D01687120FF88F60029CFFF /* ADJAdjustFactory.m in Sources */,
 				9D01687220FF88F60029CFFF /* ADJResponseData.m in Sources */,
 				9D01686020FF88F60029CFFF /* ADJActivityState.m in Sources */,
@@ -423,6 +440,7 @@
 				9D01686B20FF88F60029CFFF /* NSData+ADJAdditions.m in Sources */,
 				9D01685C20FF88F60029CFFF /* ADJEvent.m in Sources */,
 				9D01687320FF88F60029CFFF /* ADJPackageBuilder.m in Sources */,
+				9D2F241A2447DE4700B7CA90 /* ADJSubscription.m in Sources */,
 				9D01685620FF88F60029CFFF /* ADJDeviceInfo.m in Sources */,
 				9D01686620FF88F60029CFFF /* Adjust.m in Sources */,
 				9D01685D20FF88F60029CFFF /* ADJSessionSuccess.m in Sources */,
@@ -477,6 +495,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -489,7 +508,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -535,6 +554,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -547,6 +567,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

@@ -13,7 +13,6 @@
 
 #import "AdjustBridge.h"
 #import "ADJAdjustFactory.h"
-#import "WebViewJavascriptBridge.h"
 #import "WKWebViewJavascriptBridge.h"
 
 @interface AdjustBridge() <AdjustDelegate>
@@ -165,22 +164,8 @@
     [self registerAugmentedView];
 }
 
-- (void)loadUIWebViewBridge:(WVJB_WEBVIEW_TYPE *)webView {
-    [self loadUIWebViewBridge:webView webViewDelegate:nil];
-}
-
 - (void)loadWKWebViewBridge:(WKWebView *)wkWebView {
     [self loadWKWebViewBridge:wkWebView wkWebViewDelegate:nil];
-}
-
-- (void)loadUIWebViewBridge:(WVJB_WEBVIEW_TYPE *)webView
-            webViewDelegate:(WVJB_WEBVIEW_DELEGATE_TYPE *)webViewDelegate {
-    if (self.bridgeRegister != nil) {
-        // WebViewBridge already loaded.
-        return;
-    }
-
-    [self loadWebViewBridge:webView webViewDelegate:webViewDelegate];
 }
 
 - (void)loadWKWebViewBridge:(WKWebView *)wkWebView
@@ -190,12 +175,8 @@
         return;
     }
 
-    [self loadWebViewBridge:wkWebView webViewDelegate:wkWebViewDelegate];
-}
-
-- (void)loadWebViewBridge:(id)webView webViewDelegate:(id)webViewDelegate {
-    _bridgeRegister = [[AdjustBridgeRegister alloc] initWithWebView:webView];
-    [self.bridgeRegister setWebViewDelegate:webViewDelegate];
+    _bridgeRegister = [[AdjustBridgeRegister alloc] initWithWKWebView:wkWebView];
+    [self.bridgeRegister setWKWebViewDelegate:wkWebViewDelegate];
 
     [self.bridgeRegister registerHandler:@"adjust_appDidLaunch" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSString *appToken = [data objectForKey:@"appToken"];
@@ -203,12 +184,17 @@
         NSString *allowSuppressLogLevel = [data objectForKey:@"allowSuppressLogLevel"];
         NSString *sdkPrefix = [data objectForKey:@"sdkPrefix"];
         NSString *defaultTracker = [data objectForKey:@"defaultTracker"];
+        NSString *externalDeviceId = [data objectForKey:@"externalDeviceId"];
         NSString *logLevel = [data objectForKey:@"logLevel"];
         NSNumber *eventBufferingEnabled = [data objectForKey:@"eventBufferingEnabled"];
         NSNumber *sendInBackground = [data objectForKey:@"sendInBackground"];
         NSNumber *delayStart = [data objectForKey:@"delayStart"];
         NSString *userAgent = [data objectForKey:@"userAgent"];
         NSNumber *isDeviceKnown = [data objectForKey:@"isDeviceKnown"];
+        NSNumber *needsCost = [data objectForKey:@"needsCost"];
+        NSNumber *allowiAdInfoReading = [data objectForKey:@"allowiAdInfoReading"];
+        NSNumber *allowAdServicesInfoReading = [data objectForKey:@"allowAdServicesInfoReading"];
+        NSNumber *allowIdfaReading = [data objectForKey:@"allowIdfaReading"];
         NSNumber *secretId = [data objectForKey:@"secretId"];
         NSString *info1 = [data objectForKey:@"info1"];
         NSString *info2 = [data objectForKey:@"info2"];
@@ -223,6 +209,7 @@
         NSString *sessionSuccessCallback = [data objectForKey:@"sessionSuccessCallback"];
         NSString *sessionFailureCallback = [data objectForKey:@"sessionFailureCallback"];
         NSString *deferredDeeplinkCallback = [data objectForKey:@"deferredDeeplinkCallback"];
+        NSString *urlStrategy = [data objectForKey:@"urlStrategy"];
 
         ADJConfig *adjustConfig;
         if ([self isFieldValid:allowSuppressLogLevel]) {
@@ -242,6 +229,9 @@
         if ([self isFieldValid:defaultTracker]) {
             [adjustConfig setDefaultTracker:defaultTracker];
         }
+        if ([self isFieldValid:externalDeviceId]) {
+            [adjustConfig setExternalDeviceId:externalDeviceId];
+        }
         if ([self isFieldValid:logLevel]) {
             [adjustConfig setLogLevel:[ADJLogger logLevelFromString:[logLevel lowercaseString]]];
         }
@@ -259,6 +249,18 @@
         }
         if ([self isFieldValid:isDeviceKnown]) {
             [adjustConfig setIsDeviceKnown:[isDeviceKnown boolValue]];
+        }
+        if ([self isFieldValid:needsCost]) {
+            [adjustConfig setNeedsCost:[needsCost boolValue]];
+        }
+        if ([self isFieldValid:allowiAdInfoReading]) {
+            [adjustConfig setAllowiAdInfoReading:[allowiAdInfoReading boolValue]];
+        }
+        if ([self isFieldValid:allowAdServicesInfoReading]) {
+            [adjustConfig setAllowAdServicesInfoReading:[allowAdServicesInfoReading boolValue]];
+        }
+        if ([self isFieldValid:allowIdfaReading]) {
+            [adjustConfig setAllowIdfaReading:[allowIdfaReading boolValue]];
         }
         BOOL isAppSecretDefined = [self isFieldValid:secretId]
         && [self isFieldValid:info1]
@@ -314,6 +316,9 @@
             || self.sessionFailureCallbackName != nil
             || self.deferredDeeplinkCallbackName != nil) {
             [adjustConfig setDelegate:self];
+        }
+        if ([self isFieldValid:urlStrategy]) {
+            [adjustConfig setUrlStrategy:urlStrategy];
         }
 
         [Adjust appDidLaunch:adjustConfig];
@@ -408,14 +413,32 @@
         NSString *sdkVersion = [NSString stringWithFormat:@"%@@%@", sdkPrefix, [Adjust sdkVersion]];
         responseCallback(sdkVersion);
     }];
-
+    
     [self.bridgeRegister registerHandler:@"adjust_idfa" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (responseCallback == nil) {
             return;
         }
         responseCallback([Adjust idfa]);
     }];
-
+    
+    [self.bridgeRegister registerHandler:@"adjust_requestTrackingAuthorizationWithCompletionHandler" handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (responseCallback == nil) {
+            return;
+        }
+        
+        [Adjust requestTrackingAuthorizationWithCompletionHandler:^(NSUInteger status) {
+            responseCallback([NSNumber numberWithUnsignedInteger:status]);
+        }];
+    }];
+    
+    [self.bridgeRegister registerHandler:@"adjust_appTrackingAuthorizationStatus" handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (responseCallback == nil) {
+            return;
+        }
+        
+        responseCallback([NSNumber numberWithInt:[Adjust appTrackingAuthorizationStatus]]);
+    }];
+    
     [self.bridgeRegister registerHandler:@"adjust_adid" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (responseCallback == nil) {
             return;
@@ -478,12 +501,52 @@
     [self.bridgeRegister registerHandler:@"adjust_gdprForgetMe" handler:^(id data, WVJBResponseCallback responseCallback) {
         [Adjust gdprForgetMe];
     }];
+    
+    [self.bridgeRegister registerHandler:@"adjust_trackAdRevenue" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSString *source = [data objectForKey:@"source"];
+        NSString *payload = [data objectForKey:@"payload"];
+        NSData *dataPayload = [payload dataUsingEncoding:NSUTF8StringEncoding];
+        [Adjust trackAdRevenue:source payload:dataPayload];
+    }];
+    
+    [self.bridgeRegister registerHandler:@"adjust_disableThirdPartySharing" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [Adjust disableThirdPartySharing];
+    }];
+
+    [self.bridgeRegister registerHandler:@"adjust_trackThirdPartySharing" handler:^(id data, WVJBResponseCallback responseCallback) {
+        id isEnabledO = [data objectForKey:@"isEnabled"];
+        id granularOptions = [data objectForKey:@"granularOptions"];
+
+        NSNumber *isEnabled = nil;
+        if ([isEnabledO isKindOfClass:[NSNumber class]]) {
+            isEnabled = (NSNumber *)isEnabledO;
+        }
+
+        ADJThirdPartySharing *adjustThirdPartySharing =
+            [[ADJThirdPartySharing alloc] initWithIsEnabledNumberBool:isEnabled];
+
+        for (int i = 0; i < [granularOptions count]; i += 3) {
+            NSString *partnerName = [[granularOptions objectAtIndex:i] description];
+            NSString *key = [[granularOptions objectAtIndex:(i + 1)] description];
+            NSString *value = [[granularOptions objectAtIndex:(i + 2)] description];
+            [adjustThirdPartySharing addGranularOption:partnerName key:key value:value];
+        }
+
+        [Adjust trackThirdPartySharing:adjustThirdPartySharing];
+    }];
+
+    [self.bridgeRegister registerHandler:@"adjust_trackMeasurementConsent" handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (![data isKindOfClass:[NSNumber class]]) {
+            return;
+        }
+        [Adjust trackMeasurementConsent:[(NSNumber *)data boolValue]];
+    }];
+
 
     [self.bridgeRegister registerHandler:@"adjust_setTestOptions" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSString *baseUrl = [data objectForKey:@"baseUrl"];
         NSString *gdprUrl = [data objectForKey:@"gdprUrl"];
-        NSString *basePath = [data objectForKey:@"basePath"];
-        NSString *gdprPath = [data objectForKey:@"gdprPath"];
+        NSString *extraPath = [data objectForKey:@"extraPath"];
         NSNumber *timerIntervalInMilliseconds = [data objectForKey:@"timerIntervalInMilliseconds"];
         NSNumber *timerStartInMilliseconds = [data objectForKey:@"timerStartInMilliseconds"];
         NSNumber *sessionIntervalInMilliseconds = [data objectForKey:@"sessionIntervalInMilliseconds"];
@@ -492,6 +555,7 @@
         NSNumber *deleteState = [data objectForKey:@"deleteState"];
         NSNumber *noBackoffWait = [data objectForKey:@"noBackoffWait"];
         NSNumber *iAdFrameworkEnabled = [data objectForKey:@"iAdFrameworkEnabled"];
+        NSNumber *adServicesFrameworkEnabled = [data objectForKey:@"adServicesFrameworkEnabled"];
 
         AdjustTestOptions *testOptions = [[AdjustTestOptions alloc] init];
 
@@ -501,11 +565,8 @@
         if ([self isFieldValid:gdprUrl]) {
             testOptions.gdprUrl = gdprUrl;
         }
-        if ([self isFieldValid:basePath]) {
-            testOptions.basePath = basePath;
-        }
-        if ([self isFieldValid:gdprPath]) {
-            testOptions.gdprPath = gdprPath;
+        if ([self isFieldValid:extraPath]) {
+            testOptions.extraPath = extraPath;
         }
         if ([self isFieldValid:timerIntervalInMilliseconds]) {
             testOptions.timerIntervalInMilliseconds = timerIntervalInMilliseconds;
@@ -533,6 +594,9 @@
         }
         if ([self isFieldValid:iAdFrameworkEnabled]) {
             testOptions.iAdFrameworkEnabled = [iAdFrameworkEnabled boolValue];
+        }
+        if ([self isFieldValid:adServicesFrameworkEnabled]) {
+            testOptions.adServicesFrameworkEnabled = [adServicesFrameworkEnabled boolValue];
         }
 
         [Adjust setTestOptions:testOptions];
