@@ -15,6 +15,8 @@
 #import "UIDevice+ADJAdditions.h"
 #import "ADJUserDefaults.h"
 
+NSString * const ADJAttributionTokenParameter = @"attribution_token";
+
 @interface ADJPackageBuilder()
 
 @property (nonatomic, assign) double createdAt;
@@ -92,21 +94,8 @@
 }
 
 - (ADJActivityPackage *)buildInfoPackage:(NSString *)infoSource
-                                   token:(NSString *)token
-                         errorCodeNumber:(NSNumber *)errorCodeNumber
 {
     NSMutableDictionary *parameters = [self getInfoParameters:infoSource];
-
-    if (token != nil) {
-        [ADJPackageBuilder parameters:parameters
-                            setString:token
-                               forKey:@"attribution_token"];
-    }
-    if (errorCodeNumber != nil) {
-        [ADJPackageBuilder parameters:parameters
-                               setInt:errorCodeNumber.intValue
-                               forKey:@"error_code"];
-    }
 
     ADJActivityPackage *infoPackage = [self defaultActivityPackage];
     infoPackage.path = @"/sdk_info";
@@ -133,7 +122,34 @@
 }
 
 - (ADJActivityPackage *)buildClickPackage:(NSString *)clickSource {
+    return [self buildClickPackage:clickSource extraParameters:nil];
+}
+
+- (ADJActivityPackage *)buildClickPackage:(NSString *)clickSource
+                                    token:(NSString *)token
+                          errorCodeNumber:(NSNumber *)errorCodeNumber {
+
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    if (token != nil) {
+        [ADJPackageBuilder parameters:parameters
+                            setString:token
+                               forKey:ADJAttributionTokenParameter];
+    }
+    if (errorCodeNumber != nil) {
+        [ADJPackageBuilder parameters:parameters
+                               setInt:errorCodeNumber.intValue
+                               forKey:@"error_code"];
+    }
+    
+    return [self buildClickPackage:clickSource extraParameters:parameters];
+}
+
+- (ADJActivityPackage *)buildClickPackage:(NSString *)clickSource extraParameters:(NSDictionary *)extraParameters {
     NSMutableDictionary *parameters = [self getClickParameters:clickSource];
+    if (extraParameters != nil) {
+        [parameters addEntriesFromDictionary:extraParameters];
+    }
     
     if ([clickSource isEqualToString:ADJiAdPackageKey]) {
         // send iAd errors in the parameters
@@ -232,8 +248,8 @@
     subscriptionPackage.parameters = parameters;
 
     if (isInDelay) {
-        subscriptionPackage.callbackParameters = subscriptionPackage.callbackParameters;
-        subscriptionPackage.partnerParameters = subscriptionPackage.partnerParameters;
+        subscriptionPackage.callbackParameters = subscription.callbackParameters;
+        subscriptionPackage.partnerParameters = subscription.partnerParameters;
     }
 
     [self signWithSigV2Plugin:subscriptionPackage];
@@ -243,9 +259,6 @@
 
 + (void)parameters:(NSMutableDictionary *)parameters setDictionary:(NSDictionary *)dictionary forKey:(NSString *)key {
     if (dictionary == nil) {
-        return;
-    }
-    if (dictionary.count == 0) {
         return;
     }
     if (dictionary.count == 0) {
@@ -1290,6 +1303,11 @@
     [ADJPackageBuilder parameters:parameters
                         setString:[[NSString alloc] initWithData:value encoding:NSUTF8StringEncoding]
                            forKey:key];
+}
+
++ (BOOL)isAdServicesPackage:(ADJActivityPackage *)activityPackage {
+    NSString *source = activityPackage.parameters[@"source"];
+    return ([ADJUtil isNotNull:source] && [source isEqualToString:ADJAdServicesPackageKey]);
 }
 
 @end

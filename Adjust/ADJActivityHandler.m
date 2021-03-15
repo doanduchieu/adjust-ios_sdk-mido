@@ -47,13 +47,6 @@ static const int kAdServicesdRetriesCount = 1;
 
 @implementation ADJInternalState
 
-- (id)init {
-    self = [super init];
-    if (self == nil) return nil;
-
-    return self;
-}
-
 - (BOOL)isEnabled { return self.enabled; }
 - (BOOL)isDisabled { return !self.enabled; }
 - (BOOL)isOffline { return self.offline; }
@@ -72,10 +65,10 @@ static const int kAdServicesdRetriesCount = 1;
 
 - (id)init {
     self = [super init];
-    if (self == nil) return nil;
-
-    // online by default
-    self.offline = NO;
+    if (self) {
+        // online by default
+        self.offline = NO;
+    }
     return self;
 }
 
@@ -423,12 +416,12 @@ typedef NS_ENUM(NSInteger, AdjADClientError) {
                 [self checkForAdServicesAttributionI:self];
             });
         } else {
-            [self sendAdServicesInfoPackage:self
+            [self sendAdServicesClickPackage:self
                                       token:nil
                             errorCodeNumber:[NSNumber numberWithInteger:error.code]];
         }
     } else {
-        [self sendAdServicesInfoPackage:self
+        [self sendAdServicesClickPackage:self
                                   token:token
                         errorCodeNumber:nil];
     }
@@ -582,9 +575,9 @@ typedef NS_ENUM(NSInteger, AdjADClientError) {
      [selfI.sdkClickHandler sendSdkClick:clickPackage];
 }
 
-- (void)sendAdServicesInfoPackage:(ADJActivityHandler *)selfI
-                            token:(NSString *)token
-                  errorCodeNumber:(NSNumber *)errorCodeNumber
+- (void)sendAdServicesClickPackage:(ADJActivityHandler *)selfI
+                             token:(NSString *)token
+                   errorCodeNumber:(NSNumber *)errorCodeNumber
  {
      if (![selfI isEnabledI:selfI]) {
          return;
@@ -603,7 +596,7 @@ typedef NS_ENUM(NSInteger, AdjADClientError) {
              selfI.activityState.lastInterval = lastInterval;
          }];
      }
-     ADJPackageBuilder *infoBuilder = [[ADJPackageBuilder alloc]
+     ADJPackageBuilder *clickBuilder = [[ADJPackageBuilder alloc]
                                        initWithDeviceInfo:selfI.deviceInfo
                                        activityState:selfI.activityState
                                        config:selfI.adjustConfig
@@ -611,11 +604,11 @@ typedef NS_ENUM(NSInteger, AdjADClientError) {
                                        trackingStatusManager:self.trackingStatusManager
                                        createdAt:now];
 
-     ADJActivityPackage *infoPackage =
-        [infoBuilder buildInfoPackage:ADJAdServicesPackageKey
-                                 token:token
-                       errorCodeNumber:errorCodeNumber];
-     [selfI.packageHandler addPackage:infoPackage];
+     ADJActivityPackage *clickPackage =
+        [clickBuilder buildClickPackage:ADJAdServicesPackageKey
+                                  token:token
+                        errorCodeNumber:errorCodeNumber];
+     [selfI.sdkClickHandler sendSdkClick:clickPackage];
 }
 
 - (void)saveAttributionDetailsI:(ADJActivityHandler *)selfI
@@ -793,8 +786,7 @@ typedef NS_ENUM(NSInteger, AdjADClientError) {
                                                 trackingStatusManager:self.trackingStatusManager
                                                 createdAt:now];
 
-    ADJActivityPackage *infoPackage = [infoBuilder buildInfoPackage:@"att"
-                                       token:nil errorCodeNumber:nil];
+    ADJActivityPackage *infoPackage = [infoBuilder buildInfoPackage:@"att"];
     [selfI.packageHandler addPackage:infoPackage];
     
     if (selfI.adjustConfig.eventBufferingEnabled) {
@@ -1724,10 +1716,21 @@ preLaunchActions:(ADJSavedPreLaunch*)preLaunchActions
     [[UIDevice currentDevice] adjCheckForiAd:selfI queue:selfI.internalQueue];
 }
 
+- (BOOL)shouldFetchAdServicesI:(ADJActivityHandler *)selfI {
+    if (selfI.adjustConfig.allowAdServicesInfoReading == NO) {
+        return NO;
+    }
+    
+    // Fetch if no attribution OR not sent to backend yet
+    return (selfI.attribution == nil || ![ADJUserDefaults getAdServicesTracked]);
+}
+
 - (void)checkForAdServicesAttributionI:(ADJActivityHandler *)selfI {
     if (@available(iOS 14.3, tvOS 14.3, *)) {
-        if (selfI.adjustConfig.allowAdServicesInfoReading == YES && selfI.attribution == nil) {
-            [[UIDevice currentDevice] adjCheckForAdServicesAttribution:selfI];
+        if ([selfI shouldFetchAdServicesI:selfI]) {
+            NSError *error = nil;
+            NSString *token = [[UIDevice currentDevice] adjFetchAdServicesAttribution:&error];
+            [selfI setAdServicesAttributionToken:token error:error];
         }
     }
 }
@@ -1951,8 +1954,7 @@ remainsPausedMessage:(NSString *)remainsPausedMessage
                                                 trackingStatusManager:self.trackingStatusManager
                                                 createdAt:now];
 
-    ADJActivityPackage *infoPackage = [infoBuilder buildInfoPackage:@"push"
-                                       token:nil errorCodeNumber:nil];
+    ADJActivityPackage *infoPackage = [infoBuilder buildInfoPackage:@"push"];
 
     [selfI.packageHandler addPackage:infoPackage];
 
@@ -2001,8 +2003,7 @@ remainsPausedMessage:(NSString *)remainsPausedMessage
                                                 trackingStatusManager:self.trackingStatusManager
                                                 createdAt:now];
 
-    ADJActivityPackage *infoPackage = [infoBuilder buildInfoPackage:@"push"
-                                       token:nil errorCodeNumber:nil];
+    ADJActivityPackage *infoPackage = [infoBuilder buildInfoPackage:@"push"];
     [selfI.packageHandler addPackage:infoPackage];
 
     // if push token was cached, remove it
@@ -2703,29 +2704,8 @@ sdkClickHandlerOnly:(BOOL)sdkClickHandlerOnly
     if (!conversionValue) {
         return;
     }
-
-    id<ADJLogger> logger = [ADJAdjustFactory logger];
     
-    Class skAdNetwork = NSClassFromString(@"SKAdNetwork");
-    if (skAdNetwork == nil) {
-        [logger warn:@"StoreKit framework not found in user's app (SKAdNetwork not found)"];
-        return;
-    }
-    
-    SEL updateConversionValueSelector = NSSelectorFromString(@"updateConversionValue:");
-    if ([skAdNetwork respondsToSelector:updateConversionValueSelector]) {
-        NSInteger intValue = [conversionValue integerValue];
-        
-        NSMethodSignature *conversionValueMethodSignature = [skAdNetwork methodSignatureForSelector:updateConversionValueSelector];
-        NSInvocation *conversionInvocation = [NSInvocation invocationWithMethodSignature:conversionValueMethodSignature];
-        [conversionInvocation setSelector:updateConversionValueSelector];
-        [conversionInvocation setTarget:skAdNetwork];
-
-        [conversionInvocation setArgument:&intValue atIndex:2];
-        [conversionInvocation invoke];
-        
-        [logger verbose:@"Call to SKAdNetwork's updateConversionValue: method made with value %d", intValue];
-    }
+    [ADJUtil updateSkAdNetworkConversionValue:conversionValue];
 }
 
 - (void)updateAttStatusFromUserCallback:(int)newAttStatusFromUser {

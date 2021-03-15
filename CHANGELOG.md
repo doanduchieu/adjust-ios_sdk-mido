@@ -1,3 +1,25 @@
+### Version 4.26.1 (5th February 2021)
+
+#### Fixed
+- Fixed nullability warnings.
+
+---
+
+### Version 4.26.0 (3rd February 2021)
+#### Added
+- Added wrapper method `updateConversionValue:` method to `Adjust` API to allow updating SKAdNetwork conversion value via SDK API.
+
+#### Fixed
+- Fixed nullability warnings.
+
+---
+
+### Version 4.25.2 (1st February 2021)
+#### Added
+- Added Facebook audience network ad revenue source string.
+
+---
+
 ### Version 4.25.1 (18th January 2021)
 #### Fixed
 - Fixed missing header error for SPM users from v4.25.0.

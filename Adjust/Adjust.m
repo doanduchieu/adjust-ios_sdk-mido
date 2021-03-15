@@ -25,6 +25,7 @@ NSString * const ADJEnvironmentProduction = @"production";
 NSString * const ADJAdRevenueSourceMopub = @"mopub";
 NSString * const ADJAdRevenueSourceAdmob = @"admob";
 NSString * const ADJAdRevenueSourceFbNativeAd = @"facebook_native_ad";
+NSString * const ADJAdRevenueSourceFbAudienceNetwork = @"facebook_audience_network";
 NSString * const ADJAdRevenueSourceIronsource = @"ironsource";
 NSString * const ADJAdRevenueSourceFyber = @"fyber";
 NSString * const ADJAdRevenueSourceAerserv = @"aerserv";
@@ -258,6 +259,12 @@ static dispatch_once_t onceToken = 0;
 + (int)appTrackingAuthorizationStatus {
     @synchronized (self) {
         return [[Adjust getInstance] appTrackingAuthorizationStatus];
+    }
+}
+
++ (void)updateConversionValue:(NSInteger)conversionValue {
+    @synchronized (self) {
+        [[Adjust getInstance] updateConversionValue:conversionValue];
     }
 }
 
@@ -562,6 +569,10 @@ static dispatch_once_t onceToken = 0;
 
 - (int)appTrackingAuthorizationStatus {
     return [[UIDevice currentDevice] adjATTStatus];
+}
+
+- (void)updateConversionValue:(NSInteger)conversionValue {
+    [ADJUtil updateSkAdNetworkConversionValue:[NSNumber numberWithInteger:conversionValue]];
 }
 
 - (ADJAttribution *)attribution {
